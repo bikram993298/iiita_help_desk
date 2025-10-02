@@ -40,4 +40,3 @@ databases:
     databaseName: iiita_helpdesk
     user: iiita_helpdesk_user
     plan: starter
-    engine: mysql
