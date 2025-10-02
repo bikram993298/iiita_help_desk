@@ -13,6 +13,31 @@ services:
         generateValue: true
       - key: FRONTEND_URL
         value: https://iiita-helpdesk.vercel.app
+      - key: DB_HOST
+        fromService:
+          name: iiita-helpdesk-db
+          type: pserv
+          property: host
+      - key: DB_PORT
+        fromService:
+          name: iiita-helpdesk-db
+          type: pserv
+          property: port
+      - key: DB_USER
+        fromService:
+          name: iiita-helpdesk-db
+          type: pserv
+          property: user
+      - key: DB_PASSWORD
+        fromService:
+          name: iiita-helpdesk-db
+          type: pserv
+          property: password
+      - key: DB_NAME
+        fromService:
+          name: iiita-helpdesk-db
+          type: pserv
+          property: database
     healthCheckPath: /health
 
   # MySQL Database
