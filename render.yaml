@@ -1,0 +1,24 @@
+# Render Blueprint for IIITA Helpdesk
+services:
+  # Backend API Service
+  - type: web
+    name: iiita-helpdesk-api
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://iiita-helpdesk.vercel.app
+    healthCheckPath: /health
+
+  # MySQL Database
+  - type: pserv
+    name: iiita-helpdesk-db
+    env: mysql
+    plan: starter
+    databaseName: iiita_helpdesk
+    databaseUser: iiita_helpdesk_user
